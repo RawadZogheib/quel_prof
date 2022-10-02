@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "241839977820",
+    "project_id": "quel-prof",
+    "storage_bucket": "quel-prof.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241839977820:android:80dd434a37e286fa3afd99",
+        "android_client_info": {
+          "package_name": "com.example.quel_prof"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241839977820-mk3ta9glg9372c1mq344uuh41onh1jq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXfubppDbFn8kTJlMoK5dhVpzmc4ZlVBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241839977820-mk3ta9glg9372c1mq344uuh41onh1jq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
