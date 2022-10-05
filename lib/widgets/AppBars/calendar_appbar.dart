@@ -43,14 +43,6 @@ class CalendarAppBar extends AppBar {
             ),
           ),
           leadingWidth: 65,
-          title: Center(
-              child: Text(
-            'Calendar',
-            style: TextStyle(
-              color: my_colors.backgroundDark,
-              fontSize: 22
-            ),
-          )),
           actions: [
             InkWell(
               highlightColor: Colors.transparent,
