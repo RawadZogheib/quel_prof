@@ -48,21 +48,6 @@ class MyAppBar extends AppBar {
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
               hoverColor: Colors.transparent,
-              onTap: () => debugPrint('NotificationsPage'),
-              child: SizedBox(
-                height: 25,
-                width: 25,
-                child: SvgPicture.asset(
-                  'Assets/Icons/notification.svg',
-                  color: Theme.of(context).iconTheme.color,
-                ),
-              ),
-            ),
-            const SizedBox(width: 16.0),
-            InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              hoverColor: Colors.transparent,
               onTap: () => debugPrint('SettingsPage'),
               child: SizedBox(
                 height: 25,

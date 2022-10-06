@@ -28,6 +28,8 @@ dependencies:
     sdk: flutter
   flutter_snake_navigationbar: ^0.6.1
   paged_vertical_calendar: ^1.1.4
+  firebase_auth: ^3.11.1
+  flutter_session_manager: ^1.0.3
 #  flutter_launcher_icons: ^0.10.0
 #
 #flutter_icons:
@@ -98,6 +100,7 @@ flutter:
     - Assets/Images/crossLight.png
     - Assets/Images/image1.png
     - Assets/Images/crossDark.png
+    - Assets/launch_icon/167d298c-cef9-4317-b600-d8da249d4d2b.png
     
 
 

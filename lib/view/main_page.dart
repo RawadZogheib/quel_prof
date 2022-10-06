@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+import 'package:provider/provider.dart';
+import 'package:quel_prof/controller/navigation_provider/navigation_provider.dart';
 import 'package:quel_prof/view/calendar_page.dart';
 import 'package:quel_prof/view/home_page.dart';
 import 'package:quel_prof/widgets/AppBars/calendar_appbar.dart';
@@ -16,8 +18,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedItemPosition = 0;
-
   @override
   void initState() {
     // TODO: implement initState
@@ -31,7 +31,8 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       // extendBodyBehindAppBar: true,
       extendBody: true,
-      appBar: _onAppBarChanged(_selectedItemPosition),
+      appBar: _onAppBarChanged(
+          Provider.of<ProviderNavigation>(context).currentPage),
       drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).backgroundColor,
       bottomNavigationBar: SnakeNavigationBar.color(
@@ -51,31 +52,36 @@ class _MainPageState extends State<MainPage> {
             Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
         showUnselectedLabels: false,
         showSelectedLabels: false,
-        currentIndex: _selectedItemPosition,
-        onTap: (index) => setState(() => _selectedItemPosition = index),
+        currentIndex: Provider.of<ProviderNavigation>(context).currentPage,
+        onTap: (index) => setState(() =>
+            Provider.of<ProviderNavigation>(context, listen: false)
+                .currentPage = index),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.calendar_month), label: 'calendar'),
           BottomNavigationBarItem(
               icon: Icon(Icons.book_outlined), label: 'myCourses'),
-          BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'payment'),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'chat'),
           BottomNavigationBarItem(
               icon: Icon(Icons.account_circle), label: 'account')
         ],
         selectedLabelStyle: const TextStyle(fontSize: 14),
         unselectedLabelStyle: const TextStyle(fontSize: 10),
       ),
-      body: IndexedStack(
-        index: _selectedItemPosition,
-        children: const [
-          HomePage(),
-          CalendarPage(),
-          SizedBox(),
-          SizedBox(),
-          SizedBox(),
-          SizedBox()
-        ],
+      body: WillPopScope(
+        onWillPop: () async => Provider.of<ProviderNavigation>(context, listen: false).goBack(),
+        child: IndexedStack(
+          index: Provider.of<ProviderNavigation>(context).currentPage,
+          children: const [
+            HomePage(),
+            CalendarPage(),
+            SizedBox(),
+            SizedBox(),
+            SizedBox(),
+            SizedBox()
+          ],
+        ),
       ),
     );
   }

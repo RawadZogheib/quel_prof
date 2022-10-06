@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:provider/provider.dart';
+import 'package:quel_prof/controller/login/provider_login.dart';
 import 'package:quel_prof/controller/settings_provider/provider_language.dart';
 import 'package:quel_prof/controller/settings_provider/provider_theme.dart';
-import 'package:quel_prof/data/data.dart' as globals;
-import 'package:quel_prof/widgets/other/MyCustomScrollBehavior.dart';
-import 'package:provider/provider.dart';
 import 'package:quel_prof/data/my_colors.dart' as my_colors;
+import 'package:quel_prof/widgets/other/MyCustomScrollBehavior.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -34,27 +34,18 @@ class _MyDrawerState extends State<MyDrawer> {
                     height: 250,
                     width: MediaQuery.of(context).size.width,
                     alignment: Alignment.center,
-                    child: IndexedStack(
-                      index: Provider.of<ProviderTheme>(context).themeMode ==
-                              'light'
-                          ? 0
-                          : 1,
-                      children: [
-                        Image.asset(
-                          'Assets/Images/crossLight.png',
-                          fit: BoxFit.contain,
-                        ),
-                        Image.asset(
-                          'Assets/Images/crossDark.png',
-                          fit: BoxFit.contain,
-                        ),
-                      ],
+                    child: Image.asset(
+                      'Assets/launch_icon/167d298c-cef9-4317-b600-d8da249d4d2b.png',
+                      fit: BoxFit.contain,
                     ),
                   ),
                   const SizedBox(height: 20.0),
-                  const Divider(
+                  Divider(
                     thickness: 1.0,
-                    color: Colors.white70,
+                    color:
+                        Provider.of<ProviderTheme>(context).themeMode == 'light'
+                            ? Colors.black87
+                            : Colors.white70,
                     indent: 12.0,
                     endIndent: 12.0,
                   ),
@@ -67,7 +58,7 @@ class _MyDrawerState extends State<MyDrawer> {
                           text: AppLocalizations.of(context)!.dailyVerses,
                           //'Daily Verses',
                           imageString: 'Assets/Icons/timer(1).svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 0),
                         ),
                         const SizedBox(height: 5),
@@ -75,7 +66,7 @@ class _MyDrawerState extends State<MyDrawer> {
                           text: AppLocalizations.of(context)!.fullCalendar,
                           //'Full Calendar',
                           imageString: 'Assets/Icons/calendar.svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 1),
                         ),
                         const SizedBox(height: 5),
@@ -83,7 +74,7 @@ class _MyDrawerState extends State<MyDrawer> {
                           text: AppLocalizations.of(context)!.bible,
                           //'Bible',
                           imageString: 'Assets/Icons/book.svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 2),
                         ),
                         const SizedBox(height: 5),
@@ -91,7 +82,7 @@ class _MyDrawerState extends State<MyDrawer> {
                           text: AppLocalizations.of(context)!.savedVerses,
                           //'Saved Verses',
                           imageString: 'Assets/Icons/heart.svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 3),
                         ),
                         const SizedBox(height: 5),
@@ -105,99 +96,93 @@ class _MyDrawerState extends State<MyDrawer> {
                                     'dark',
                             type: GFToggleType.ios,
                             enabledThumbColor: my_colors.backgroundDark,
-                            enabledTrackColor:
-                                Theme.of(context).textTheme.headline6?.color,
+                            enabledTrackColor: Theme.of(context).primaryColor,
                             onChanged: (bool? value) async {
                               // _isDark = value!;
                               await selectedItem(context, 4);
                             },
                           ),
                           imageString: 'Assets/Icons/moon.svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).primaryColor,
                           // onClicked: () => ,
                         ),
                         const SizedBox(height: 5),
-                        Container(
-                          height: 50,
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                height: 22,
-                                width: 22,
-                                child: SvgPicture.asset(
-                                  'Assets/Icons/global.svg',
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .headline6
-                                      ?.color,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 185,
-                                child: Row(
-                                  children: [
-                                    InkWell(
-                                      highlightColor: Colors.transparent,
-                                      splashColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      onTap: () => selectedItem(context, 5),
-                                      child: Text(
-                                        'EN',
-                                        style: TextStyle(
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontWeight:
-                                              Provider.of<ProviderLanguage>(
-                                                      context)
-                                                  .setFontWeight('en'),
-                                          fontSize:
-                                              Provider.of<ProviderLanguage>(
-                                                      context)
-                                                  .setFontSize('en'),
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      ' | ',
-                                      style: TextStyle(
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontSize: 17),
-                                    ),
-                                    InkWell(
-                                      highlightColor: Colors.transparent,
-                                      splashColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      onTap: () => selectedItem(context, 6),
-                                      child: Text(
-                                        'AR',
-                                        style: TextStyle(
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .headline6
-                                              ?.color,
-                                          fontWeight:
-                                              Provider.of<ProviderLanguage>(
-                                                      context)
-                                                  .setFontWeight('ar'),
-                                          fontSize:
-                                              Provider.of<ProviderLanguage>(
-                                                      context)
-                                                  .setFontSize('ar'),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                        // Container(
+                        //   height: 50,
+                        //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        //   child: Row(
+                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //     children: [
+                        //       SizedBox(
+                        //         height: 22,
+                        //         width: 22,
+                        //         child: SvgPicture.asset(
+                        //           'Assets/Icons/global.svg',
+                        //           color: Theme.of(context).primaryColor,
+                        //         ),
+                        //       ),
+                        //       SizedBox(
+                        //         width: 185,
+                        //         child: Row(
+                        //           children: [
+                        //             InkWell(
+                        //               highlightColor: Colors.transparent,
+                        //               splashColor: Colors.transparent,
+                        //               hoverColor: Colors.transparent,
+                        //               onTap: () => selectedItem(context, 5),
+                        //               child: Text(
+                        //                 'EN',
+                        //                 style: TextStyle(
+                        //                   color: Theme.of(context).primaryColor,
+                        //                   fontWeight:
+                        //                       Provider.of<ProviderLanguage>(
+                        //                               context)
+                        //                           .setFontWeight('en'),
+                        //                   fontSize:
+                        //                       Provider.of<ProviderLanguage>(
+                        //                               context)
+                        //                           .setFontSize('en'),
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //             Text(
+                        //               ' | ',
+                        //               style: TextStyle(
+                        //                   color: Theme.of(context).primaryColor,
+                        //                   fontSize: 17),
+                        //             ),
+                        //             InkWell(
+                        //               highlightColor: Colors.transparent,
+                        //               splashColor: Colors.transparent,
+                        //               hoverColor: Colors.transparent,
+                        //               onTap: () => selectedItem(context, 6),
+                        //               child: Text(
+                        //                 'AR',
+                        //                 style: TextStyle(
+                        //                   color: Theme.of(context).primaryColor,
+                        //                   fontWeight:
+                        //                       Provider.of<ProviderLanguage>(
+                        //                               context)
+                        //                           .setFontWeight('ar'),
+                        //                   fontSize:
+                        //                       Provider.of<ProviderLanguage>(
+                        //                               context)
+                        //                           .setFontSize('ar'),
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           ],
+                        //         ),
+                        //       )
+                        //     ],
+                        //   ),
+                        // ),
+                        MenuItem(
+                          text: 'Logout',
+                          //'Logout',
+                          imageString: 'Logout',
+                          color: Theme.of(context).primaryColor,
+                          onClicked: () => selectedItem(context, 7),
                         ),
                         const SizedBox(height: 8),
                       ],
@@ -242,6 +227,10 @@ class _MyDrawerState extends State<MyDrawer> {
       case 6: // Make AR
         Provider.of<ProviderLanguage>(context, listen: false).setLanguageAr();
         break;
+
+      case 7: // Logout
+        Provider.of<ProviderLogin>(context, listen: false).logout(context);
+        break;
     }
   }
 }
@@ -271,7 +260,9 @@ class MenuItem extends StatelessWidget {
       leading: SizedBox(
           height: 22,
           width: 22,
-          child: SvgPicture.asset(imageString, color: color)),
+          child: imageString == 'Logout'
+              ? Icon(Icons.logout, color: color)
+              : SvgPicture.asset(imageString, color: color)),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

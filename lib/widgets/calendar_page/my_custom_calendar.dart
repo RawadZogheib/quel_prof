@@ -86,7 +86,7 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
                       'Assets/Icons/arrow-circle-left.svg',
                       height: 26,
                       width: 26,
-                      color: my_colors.backgroundDark,
+                      color: my_colors.backgroundLight,
                     ),
                   ),
                 ),
@@ -103,7 +103,7 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
                           style: Theme
                               .of(context)
                               .textTheme
-                              .headline6?.copyWith(color: my_colors.backgroundDark),
+                              .headline6?.copyWith(color: my_colors.backgroundLight),
                         );
                       }),
                 ),
@@ -116,7 +116,7 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
                       'Assets/Icons/arrow-circle-right.svg',
                       height: 26,
                       width: 26,
-                      color: my_colors.backgroundDark,
+                      color: my_colors.backgroundLight,
                     ),
                   ),
                 ),
@@ -192,18 +192,19 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
                         Container(
                           alignment: Alignment.center,
                           margin: const EdgeInsets.symmetric(
-                            vertical: 2.3,
+                            vertical: 0.0,
                             horizontal: 4.0,
                           ),
                           decoration: BoxDecoration(
+                              shape: BoxShape.circle,
                             color: date.isAtSameMomentAs(DateTime.parse(
                                 DateFormat('yyyy-MM-dd').format(
                                     DateTime.now().toLocal())))
-                                ? my_colors.backgroundLight
+                                ?Colors.transparent.withOpacity(0.3)
                                 : null, //HexColor('#dfe2e6'),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(300.0),
-                            ),
+                            // borderRadius: const BorderRadius.all(
+                            //   Radius.circular(300.0),
+                            // ),
                             border: date.isAtSameMomentAs(_selectedDate)
                                 ? Border.all(
                               width: 2,

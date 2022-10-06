@@ -1,3 +1,5 @@
+library quel_prof.my_colors;
+
 import 'package:flutter/material.dart';
 import 'package:quel_prof/hexColor/hexColor.dart';
 

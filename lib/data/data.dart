@@ -1,4 +1,4 @@
-library hudra_mobile.data2;
+library quel_prof.data;
 
 import 'package:quel_prof/hexColor/hexColor.dart';
 import 'package:flutter/material.dart';
