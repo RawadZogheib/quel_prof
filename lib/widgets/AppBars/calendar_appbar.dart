@@ -34,7 +34,8 @@ class CalendarAppBar extends AppBar {
                           Matrix4.rotationY(isRTL(context) ? math.pi : 0),
                       child: SvgPicture.asset(
                         'Assets/Icons/Group 8.svg',
-                        color: my_colors.backgroundLight,
+                        color: my_colors.backgroundLight
+                        ,
                       ),
                     ),
                   ),

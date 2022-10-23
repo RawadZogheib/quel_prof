@@ -44,9 +44,9 @@ class ProviderLogin extends ChangeNotifier {
         return;
       }
       try {
-        await Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        );
+        // await Firebase.initializeApp(
+        //   options: DefaultFirebaseOptions.currentPlatform,
+        // );
         final credential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email!, password: _password!);
 

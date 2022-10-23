@@ -25,6 +25,7 @@ errorPopup(BuildContext context, String? text) {
       position: MotionToastPosition.bottom,
       animationType: AnimationType.fromRight,
       height: 100,
+      width: 350,
     ).show(context);
   }else{
     MotionToast(
@@ -43,6 +44,7 @@ errorPopup(BuildContext context, String? text) {
       position: MotionToastPosition.bottom,
       animationType: AnimationType.fromRight,
       height: 100,
+      width: 350,
     ).show(context);
   }
 }
@@ -64,6 +66,7 @@ warningPopup(BuildContext context, String? text) {
     position: MotionToastPosition.bottom,
     animationType: AnimationType.fromRight,
     height: 100,
+    width: 350,
   ).show(context);
 }
 
@@ -84,5 +87,6 @@ successPopup(BuildContext context, String? text) {
     position: MotionToastPosition.bottom,
     animationType: AnimationType.fromRight,
     height: 100,
+    width: 350,
   ).show(context);
 }

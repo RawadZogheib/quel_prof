@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HolidayItem extends StatelessWidget {
-  String holidayName;
+class CourseItem extends StatelessWidget {
+  String courseId;
+  String courseName;
   DateTime date;
 
-  HolidayItem({
+  CourseItem({
     Key? key,
-    required this.holidayName,
+    required this.courseId,
+    required this.courseName,
     required this.date,
   }) : super(key: key);
 
@@ -17,7 +19,7 @@ class HolidayItem extends StatelessWidget {
       splashColor: Colors.transparent,
       hoverColor: Colors.transparent,
       onTap: () {
-        debugPrint(holidayName);
+        debugPrint(courseName);
       },
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 68),
@@ -38,7 +40,7 @@ class HolidayItem extends StatelessWidget {
               SizedBox(
                 width: 320,
                 child: Text(
-                  holidayName,
+                  courseName,
                   style: TextStyle(
                     fontSize: 15,
                     color: Theme.of(context).primaryColor,

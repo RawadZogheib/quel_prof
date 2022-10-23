@@ -5,7 +5,7 @@ import 'package:quel_prof/controller/settings_provider/provider_language.dart';
 import 'package:quel_prof/controller/settings_provider/provider_theme.dart';
 import 'package:quel_prof/data/my_colors.dart' as my_colors;
 import 'package:quel_prof/widgets/Other/MyCustomScrollBehavior.dart';
-import 'package:quel_prof/widgets/calendar_page/holiday_item.dart';
+import 'package:quel_prof/widgets/calendar_page/course_item.dart';
 import 'package:quel_prof/widgets/calendar_page/my_custom_calendar.dart';
 
 class CalendarPage extends StatefulWidget {
@@ -17,7 +17,7 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   DateTime _date = DateTime.now();
-  final List<HolidayItem> _holidayItems = [];
+  final List<CourseItem> _coursesItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,7 @@ class _CalendarPageState extends State<CalendarPage> {
                                   );
                                 }),
                                 const SizedBox(height: 8.0),
-                                _holidayItems.isEmpty
+                                _coursesItems.isEmpty
                                     ? Text(
                                         // AppLocalizations.of(context)!.noHoliday,
                                         'No course available',
@@ -139,10 +139,10 @@ class _CalendarPageState extends State<CalendarPage> {
                                         ),
                                       ),
                                 const SizedBox(height: 20),
-                                _holidayItems.isNotEmpty
+                                _coursesItems.isNotEmpty
                                     ? Expanded(
                                         child: Column(
-                                          children: _holidayItems,
+                                          children: _coursesItems,
                                         ),
                                       )
                                     : const SizedBox.shrink(),
@@ -161,13 +161,13 @@ class _CalendarPageState extends State<CalendarPage> {
     );
   }
 
-  void _onDayPressed(DateTime date, List<HolidayItem> holidayItem) {
+  void _onDayPressed(DateTime date, List<CourseItem> holidayItem) {
     debugPrint(DateFormat('yyyy-MM-dd').format(date));
     setState(() {
       _date = date;
     });
-    _holidayItems.clear();
-    _holidayItems.addAll(holidayItem);
+    _coursesItems.clear();
+    _coursesItems.addAll(holidayItem);
     // _open(date);
     // _checkIfIsLoggedIn(date);
   }
