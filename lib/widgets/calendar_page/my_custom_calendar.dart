@@ -1,14 +1,12 @@
 import 'dart:math' as math; // import this
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:paged_vertical_calendar/utils/date_utils.dart';
 import 'package:provider/provider.dart';
+import 'package:quel_prof/controller/courses/provider_courses.dart';
 import 'package:quel_prof/controller/other/is_rtl.dart';
 import 'package:quel_prof/controller/settings_provider/provider_language.dart';
 import 'package:quel_prof/data/my_colors.dart' as my_colors;
@@ -47,7 +45,7 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
   DateTime _selectedDate =
       DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now().toLocal()));
 
-  List<CourseItem> _courses = [];
+  // List<CourseItem> _courses = [];
 
   @override
   void initState() {
@@ -284,15 +282,19 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
     _selectedDate = date;
     List<CourseItem> holidaysTMP = [];
     // if (_courses.containsKey(date.year)) {
-    holidaysTMP
-        .addAll(_courses.where((element) => element.date.isSameDay(date)));
+    holidaysTMP.addAll(Provider.of<ProviderCourses>(context)
+        .courses
+        .where((element) => element.date.isSameDay(date)));
     // }
     widget.onDayPressed(date, holidaysTMP);
   }
 
   bool _checkIsCourse(DateTime date) {
     // if (_courses.containsKey(date.year)) {
-    if (_courses.where((element) => element.date.isSameDay(date)).isNotEmpty) {
+    if (Provider.of<ProviderCourses>(context)
+        .courses
+        .where((element) => element.date.isSameDay(date))
+        .isNotEmpty) {
       return true;
     }
     // }

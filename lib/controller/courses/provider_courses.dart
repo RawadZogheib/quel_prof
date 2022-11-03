@@ -1,13 +1,11 @@
 import 'dart:async';
 
-import 'package:quel_prof/widgets/PopUp/errorWarningPopup.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:quel_prof/widgets/calendar_page/course_item.dart';
 
-class ProviderLibrary extends ChangeNotifier {
+class ProviderCourses extends ChangeNotifier {
   ///Fields
   bool _isDisposed = false;
   bool _isLoading = false;
@@ -16,10 +14,10 @@ class ProviderLibrary extends ChangeNotifier {
   // bool _isLoading = false;
   Stream<List<CourseItem>>? _stream; // The stream
   late StreamSubscription? _subStream; // To control the stream
-  List<CourseItem> _children = <CourseItem>[];
+  List<CourseItem> _courses = <CourseItem>[];
 
   ///Getters & Setters
-
+  List<CourseItem> get courses => _courses;
 
   ///Overrides
   @override
@@ -31,7 +29,6 @@ class ProviderLibrary extends ChangeNotifier {
   ///methods
 
   Future<void> onInitState(BuildContext context) async {
-
     FirebaseAuth.instance.userChanges().listen((User? user) {
       if (user == null) {
         debugPrint('User is currently signed out!');
@@ -43,20 +40,18 @@ class ProviderLibrary extends ChangeNotifier {
     });
   }
 
-
   void _openStream(String uid) {
     debugPrint('User is signed in!');
     debugPrint('Stream Open!');
     _stream = _loadCoursesFromFireBase(uid).asBroadcastStream();
     _subStream = _stream?.listen((event) {
       try {
-        _children = event;
+        _courses = event;
         _isLoading = false;
         notifyListeners();
         return;
       } catch (e) {
-        _children = [];
-        _children = [];
+        _courses = [];
         _isLoading = false;
         notifyListeners();
         return;
@@ -74,15 +69,13 @@ class ProviderLibrary extends ChangeNotifier {
         // .limit(_getNbr)
         .snapshots()
         .map((QuerySnapshot querySnapshot) => querySnapshot.docs.map(
-          (DocumentSnapshot documentSnapshot) {
-
-        debugPrint(documentSnapshot.id);
-        return CourseItem(
-            courseId: documentSnapshot.id,
-            courseName: documentSnapshot.get('courseName'),
-            date: documentSnapshot.get('courseDate:'));
-      },
-    ).toList());
+              (DocumentSnapshot documentSnapshot) {
+                debugPrint(documentSnapshot.id);
+                return CourseItem(
+                    courseId: documentSnapshot.id,
+                    courseName: documentSnapshot.get('courseName'),
+                    date: documentSnapshot.get('courseDate:'));
+              },
+            ).toList());
   }
-
 }
