@@ -31,6 +31,10 @@ dependencies:
   firebase_auth: ^3.11.1
   flutter_session_manager: ^1.0.3
   cloud_firestore: ^3.5.1
+  flutter_firebase_chat_core: ^1.6.3
+  any_link_preview: ^2.0.9
+  url_launcher: ^6.1.6
+  flutter_keyboard_visibility: ^5.4.0
 #  flutter_launcher_icons: ^0.10.0
 #
 #flutter_icons:

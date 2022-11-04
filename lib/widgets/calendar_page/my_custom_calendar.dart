@@ -51,6 +51,11 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    Future.delayed(Duration.zero, () async {
+      if(mounted) {
+        await Provider.of<ProviderCourses>(context, listen: false).onInitState(context);
+      }
+    });
   }
 
   @override
@@ -282,7 +287,7 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
     _selectedDate = date;
     List<CourseItem> holidaysTMP = [];
     // if (_courses.containsKey(date.year)) {
-    holidaysTMP.addAll(Provider.of<ProviderCourses>(context)
+    holidaysTMP.addAll(Provider.of<ProviderCourses>(context, listen: false)
         .courses
         .where((element) => element.date.isSameDay(date)));
     // }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quel_prof/controller/other/capitaize.dart';
 
 class CourseItem extends StatelessWidget {
   String courseId;
@@ -26,25 +27,42 @@ class CourseItem extends StatelessWidget {
         child: Container(
           // height: 63,
           width: 320,
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-            horizontal: 15,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           margin: const EdgeInsets.symmetric(vertical: 4.0),
           decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor,
-            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-          ),
+              color: Theme.of(context).backgroundColor,
+              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+              border: Border.all(color: Theme.of(context).primaryColor)),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 width: 320,
-                child: Text(
-                  courseName,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Theme.of(context).primaryColor,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: Text(
+                        courseName.capitalize(),
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                    // const Expanded(child: SizedBox.shrink()),
+                    const SizedBox(width: 15),
+                    Text(
+                      "${date.hour}:${date.minute}",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                  ],
                 ),
               )
             ],

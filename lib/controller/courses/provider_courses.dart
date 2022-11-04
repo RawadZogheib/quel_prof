@@ -33,7 +33,7 @@ class ProviderCourses extends ChangeNotifier {
       if (user == null) {
         debugPrint('User is currently signed out!');
         Navigator.pushNamedAndRemoveUntil(
-            context, '/intro_page', (route) => false);
+            context, '/FirstPage', (route) => false);
       } else {
         _openStream(user.uid);
       }
@@ -74,7 +74,7 @@ class ProviderCourses extends ChangeNotifier {
                 return CourseItem(
                     courseId: documentSnapshot.id,
                     courseName: documentSnapshot.get('courseName'),
-                    date: documentSnapshot.get('courseDate:'));
+                    date: documentSnapshot.get('courseDate').toDate());
               },
             ).toList());
   }

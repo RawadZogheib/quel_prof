@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:quel_prof/controller/chat/provider_chat.dart';
+import 'package:quel_prof/controller/courses/provider_courses.dart';
 import 'package:quel_prof/controller/login/provider_login.dart';
 import 'package:quel_prof/controller/navigation_provider/navigation_provider.dart';
 import 'package:quel_prof/controller/settings_provider/provider_language.dart';
@@ -46,6 +48,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ProviderLanguage()),
         ChangeNotifierProvider(create: (context) => ProviderNavigation()),
         ChangeNotifierProvider(create: (context) => ProviderLogin()),
+        ChangeNotifierProvider(create: (context) => ProviderCourses()),
+        ChangeNotifierProvider(create: (context) => ProviderChat()),
       ],
       builder: (context, child) {
         return MaterialApp(

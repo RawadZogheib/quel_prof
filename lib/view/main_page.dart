@@ -4,6 +4,8 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:provider/provider.dart';
 import 'package:quel_prof/controller/navigation_provider/navigation_provider.dart';
 import 'package:quel_prof/view/calendar_page.dart';
+import 'package:quel_prof/view/chat_page.dart';
+import 'package:quel_prof/view/error_page.dart';
 import 'package:quel_prof/view/home_page.dart';
 import 'package:quel_prof/widgets/AppBars/calendar_appbar.dart';
 import 'package:quel_prof/widgets/AppBars/home_appbar.dart';
@@ -76,10 +78,11 @@ class _MainPageState extends State<MainPage> {
           children: const [
             HomePage(),
             CalendarPage(),
-            SizedBox(),
-            SizedBox(),
-            SizedBox(),
-            SizedBox()
+            ErrorPage(),
+            ChatPage(),
+            // SizedBox(),
+            ErrorPage(),
+            ErrorPage()
           ],
         ),
       ),
