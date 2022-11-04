@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:provider/provider.dart';
 import 'package:quel_prof/controller/login/provider_login.dart';
+import 'package:quel_prof/controller/navigation_provider/navigation_provider.dart';
 import 'package:quel_prof/controller/settings_provider/provider_language.dart';
 import 'package:quel_prof/controller/settings_provider/provider_theme.dart';
 import 'package:quel_prof/data/my_colors.dart' as my_colors;
@@ -55,33 +56,33 @@ class _MyDrawerState extends State<MyDrawer> {
                       children: [
                         const SizedBox(height: 12),
                         MenuItem(
-                          text: AppLocalizations.of(context)!.dailyVerses,
+                          text: 'Home',
                           //'Daily Verses',
-                          imageString: 'Assets/Icons/timer(1).svg',
+                          imageString: Icons.home,
                           color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 0),
                         ),
                         const SizedBox(height: 5),
                         MenuItem(
-                          text: AppLocalizations.of(context)!.fullCalendar,
+                          text: 'Calendar',
                           //'Full Calendar',
-                          imageString: 'Assets/Icons/calendar.svg',
+                          imageString: Icons.calendar_month,
                           color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 1),
                         ),
                         const SizedBox(height: 5),
                         MenuItem(
-                          text: AppLocalizations.of(context)!.bible,
+                          text: 'My Courses',
                           //'Bible',
-                          imageString: 'Assets/Icons/book.svg',
+                          imageString: Icons.book_outlined,
                           color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 2),
                         ),
                         const SizedBox(height: 5),
                         MenuItem(
-                          text: AppLocalizations.of(context)!.savedVerses,
+                          text: 'Chat',
                           //'Saved Verses',
-                          imageString: 'Assets/Icons/heart.svg',
+                          imageString: Icons.chat,
                           color: Theme.of(context).primaryColor,
                           onClicked: () => selectedItem(context, 3),
                         ),
@@ -102,7 +103,7 @@ class _MyDrawerState extends State<MyDrawer> {
                               await selectedItem(context, 4);
                             },
                           ),
-                          imageString: 'Assets/Icons/moon.svg',
+                          imageString: Icons.dark_mode_outlined,
                           color: Theme.of(context).primaryColor,
                           // onClicked: () => ,
                         ),
@@ -180,9 +181,9 @@ class _MyDrawerState extends State<MyDrawer> {
                         MenuItem(
                           text: 'Logout',
                           //'Logout',
-                          imageString: 'Logout',
+                          imageString: Icons.logout,
                           color: Theme.of(context).primaryColor,
-                          onClicked: () => selectedItem(context, 7),
+                          onClicked: () => selectedItem(context, 5),
                         ),
                         const SizedBox(height: 8),
                       ],
@@ -204,31 +205,32 @@ class _MyDrawerState extends State<MyDrawer> {
         //     'DailyPage') {
         //   Provider.of<ProviderGlobal>(context, listen: false).goTo('DailyPage');
         // }
+        Provider.of<ProviderNavigation>(context, listen: false)
+            .currentPage = index;
         Navigator.of(context).pop();
         break;
       case 1: // CalendarPage
+        Provider.of<ProviderNavigation>(context, listen: false)
+            .currentPage = index;
         Navigator.of(context).pop();
         // widget.setState();
         break;
       case 2: // BiblePage
+        Provider.of<ProviderNavigation>(context, listen: false)
+            .currentPage = index;
         Navigator.of(context).pop();
         // widget.setState();
         break;
       case 3: // SavedVerses
+        Provider.of<ProviderNavigation>(context, listen: false)
+            .currentPage = index;
         Navigator.of(context).pop();
         break;
       case 4: // Change Theme
         Provider.of<ProviderTheme>(context, listen: false).setThemeMode();
         break;
-      case 5: // Make EN
-        Provider.of<ProviderLanguage>(context, listen: false).setLanguageEn();
-        break;
 
-      case 6: // Make AR
-        Provider.of<ProviderLanguage>(context, listen: false).setLanguageAr();
-        break;
-
-      case 7: // Logout
+      case 5: // Logout
         Provider.of<ProviderLogin>(context, listen: false).logout(context);
         break;
     }
@@ -238,7 +240,7 @@ class _MyDrawerState extends State<MyDrawer> {
 class MenuItem extends StatelessWidget {
   String text;
   Widget? widget;
-  String imageString;
+  IconData imageString;
   Color? color;
   VoidCallback? onClicked;
 
@@ -260,9 +262,7 @@ class MenuItem extends StatelessWidget {
       leading: SizedBox(
           height: 22,
           width: 22,
-          child: imageString == 'Logout'
-              ? Icon(Icons.logout, color: color)
-              : SvgPicture.asset(imageString, color: color)),
+          child: Icon(imageString, color: color)),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

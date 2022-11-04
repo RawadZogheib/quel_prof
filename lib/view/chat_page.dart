@@ -98,8 +98,9 @@ class _ChatPageState extends State<ChatPage> {
               ),
             ),
             !isKeyboardVisible
-                ? const SizedBox(height: 85)
-                : const SizedBox(height: 16),
+                ? SizedBox(height: MediaQuery.of(context).size.height * 0.1)
+                : const SizedBox.shrink(),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.025),
           ],
         );
       });

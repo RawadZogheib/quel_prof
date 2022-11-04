@@ -23,7 +23,7 @@ class CourseItem extends StatelessWidget {
         debugPrint(courseName);
       },
       child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 68),
+        constraints: const BoxConstraints(minHeight: 80),
         child: Container(
           // height: 63,
           width: 320,
@@ -46,22 +46,42 @@ class CourseItem extends StatelessWidget {
                       child: Text(
                         courseName.capitalize(),
                         style: TextStyle(
-                          fontSize: 17,
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold
-                        ),
+                            fontSize: 17,
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                     // const Expanded(child: SizedBox.shrink()),
-                    const SizedBox(width: 15),
-                    Text(
-                      "${date.hour}:${date.minute}",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                    const SizedBox(width: 6),
+                    Column(
+                      children: [
+                        Container(
+                          height: 33,
+                          width: 77,
+                          decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: const BorderRadius.all(
+                                  Radius.circular(12.0))),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Join",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Theme.of(context).backgroundColor,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          "${date.hour}:${date.minute}",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 15),
+                    const SizedBox(width: 0),
                   ],
                 ),
               )

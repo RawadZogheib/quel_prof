@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                           right: MediaQuery.of(context).size.width * 0.05,
                           bottom: 8.0),
                       child: SizedBox(
-                        width: 500,
+                        width: 400,
                         height: 65,
                         child: myTextInput(
                           textEditingController: textEditingControllerPassword,
@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                           colBlue_2: Provider.of<ProviderLogin>(context)
                               .colorPassword2,
                           maxLines: 1,
-                          textInputAction: TextInputAction.none,
+                          // textInputAction: TextInputAction.none,
                           spaceAllowed: false,
                           obscure: true,
                         ),
