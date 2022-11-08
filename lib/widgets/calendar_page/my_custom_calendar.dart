@@ -48,17 +48,6 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
   // List<CourseItem> _courses = [];
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration.zero, () async {
-      if(mounted) {
-        await Provider.of<ProviderCourses>(context, listen: false).onInitState(context);
-      }
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(35.0, 1.0, 35.0, 1.0),

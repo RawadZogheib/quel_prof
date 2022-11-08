@@ -57,7 +57,7 @@ class ProviderChat extends ChangeNotifier {
       try {
         _children = event;
         _isLoading = false;
-        await scrollDown();
+        // await scrollDown();
         notifyListeners();
         return;
       } catch (e) {
@@ -170,27 +170,29 @@ class ProviderChat extends ChangeNotifier {
           "messageDate": DateTime.now()
         };
 
-        await FirebaseFirestore.instance.collection("chat").add(data).then(
-            (documentSnapshot) =>
-                debugPrint("Added message with ID: ${documentSnapshot.id}"));
         _textEditingController.clear();
+        await FirebaseFirestore.instance.collection("chat").add(data).then(
+            (documentSnapshot) {
+                debugPrint("Added message with ID: ${documentSnapshot.id}");
+            });
+        // _textEditingController.clear();
       }
     });
   }
 
-  Future<void> scrollDown() async {
-    while (!_scrollController.hasClients) {
-      // _isListViewBuilded != true
-      print('await');
-      await Future.delayed(const Duration(milliseconds: 100));
-    }
-    // Future.delayed(Duration.zero, () async {
-    // });
-
-    print('!await');
-    _scrollController.jumpTo(_scrollController.position.maxScrollExtent * 3);
-    // notifyListeners();
-    // await _scrollController.animateTo(_scrollController.position.maxScrollExtent * 2,
-    //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
-  }
+  // Future<void> scrollDown() async {
+  //   while (!_scrollController.hasClients) {
+  //     // _isListViewBuilded != true
+  //     print('await');
+  //     await Future.delayed(const Duration(milliseconds: 100));
+  //   }
+  //   // Future.delayed(Duration.zero, () async {
+  //   // });
+  //
+  //   print('!await');
+  //   _scrollController.jumpTo(_scrollController.position.maxScrollExtent * 3);
+  //   // notifyListeners();
+  //   // await _scrollController.animateTo(_scrollController.position.maxScrollExtent * 2,
+  //   //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+  // }
 }

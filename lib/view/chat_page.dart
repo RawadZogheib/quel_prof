@@ -40,6 +40,7 @@ class _ChatPageState extends State<ChatPage> {
                             .copyWith(overscroll: false, scrollbars: false),
                         child: SingleChildScrollView(
                           controller: providerChat.scrollController,
+                          reverse: true,
                           child: Column(
                             // mainAxisAlignment: MainAxisAlignment.start,
                             children: providerChat.children,
@@ -69,10 +70,10 @@ class _ChatPageState extends State<ChatPage> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextFormField(
-                        onTap: () => !isKeyboardVisible
-                            ? Provider.of<ProviderChat>(context, listen: false)
-                                .scrollDown()
-                            : null,
+                        // onTap: () => !isKeyboardVisible
+                        //     ? Provider.of<ProviderChat>(context, listen: false)
+                        //         .scrollDown()
+                        //     : null,
                         controller: providerChat.textEditingController,
                         style: const TextStyle(color: Colors.white),
                         cursorColor: Theme.of(context).primaryColor,
@@ -100,7 +101,7 @@ class _ChatPageState extends State<ChatPage> {
             !isKeyboardVisible
                 ? SizedBox(height: MediaQuery.of(context).size.height * 0.1)
                 : const SizedBox.shrink(),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.015),
           ],
         );
       });
