@@ -14,7 +14,6 @@ errorPopup(BuildContext context, String? text) {
       primaryColor: globals.red2,
       secondaryColor: globals.red1,
       toastDuration: const Duration(seconds: 3),
-      backgroundType: BackgroundType.solid,
       title: const Text(
         'Error',
         style: TextStyle(fontWeight: FontWeight.bold),
@@ -33,7 +32,6 @@ errorPopup(BuildContext context, String? text) {
       primaryColor: globals.red2,
       secondaryColor: globals.red1,
       toastDuration: const Duration(seconds: 3),
-      backgroundType: BackgroundType.solid,
       title: const Text(
         'Error',
         style: TextStyle(fontWeight: FontWeight.bold),
@@ -55,7 +53,6 @@ warningPopup(BuildContext context, String? text) {
     primaryColor: globals.yellow2,
     secondaryColor: globals.yellow1,
     toastDuration: const Duration(seconds: 3),
-    backgroundType: BackgroundType.solid,
     title: const Text(
       'Warning',
       style: TextStyle(fontWeight: FontWeight.bold),
@@ -76,7 +73,6 @@ successPopup(BuildContext context, String? text) {
     primaryColor: globals.green2,
     secondaryColor: globals.green1,
     toastDuration: const Duration(seconds: 3),
-    backgroundType: BackgroundType.solid,
     title: const Text(
       'Success',
       style: TextStyle(fontWeight: FontWeight.bold),

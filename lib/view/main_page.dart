@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
       appBar: _onAppBarChanged(
           Provider.of<ProviderNavigation>(context).currentPage),
       drawer: const MyDrawer(),
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       bottomNavigationBar: SnakeNavigationBar.color(
         backgroundColor:
             Theme.of(context).bottomNavigationBarTheme.backgroundColor,
@@ -154,7 +154,7 @@ class _MainPageState extends State<MainPage> {
 
   void setSystemUIOverlayStyle() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Theme.of(context).backgroundColor,
+      systemNavigationBarColor: Theme.of(context).colorScheme.background,
     ));
   }
 }

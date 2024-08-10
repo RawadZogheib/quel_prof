@@ -8,7 +8,7 @@ class ProviderTheme extends ChangeNotifier {
 
   final ThemeData _lightTheme = ThemeData(
     primaryColor: my_colors.primaryLight,
-    backgroundColor: my_colors.backgroundLight,
+    // backgroundColor: my_colors.backgroundLight,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: my_colors.selectedItemColorLight,
       backgroundColor: my_colors.backgroundNavigationBarColorLight,
@@ -20,7 +20,7 @@ class ProviderTheme extends ChangeNotifier {
   );
   final ThemeData _darkTheme = ThemeData(
     primaryColor: my_colors.primaryDark,
-    backgroundColor: my_colors.backgroundDark,
+    // backgroundColor: my_colors.backgroundDark,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: my_colors.selectedItemColorDark,
       backgroundColor: my_colors.backgroundNavigationBarColorDark,

@@ -47,7 +47,7 @@ class _SearchFieldState extends State<SearchField> {
           autofocus: false,
           autocorrect: false,
           style: TextStyle(
-              color: Theme.of(context).textTheme.headline6?.color,
+              color: Theme.of(context).textTheme.titleLarge?.color,
               fontSize: 15,
               decoration: TextDecoration.none),
           decoration: InputDecoration(
@@ -55,7 +55,7 @@ class _SearchFieldState extends State<SearchField> {
                 const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             hintText: 'Search',
             hintStyle:
-                TextStyle(color: Theme.of(context).textTheme.headline6?.color),
+                TextStyle(color: Theme.of(context).textTheme.titleLarge?.color),
             prefixIcon: Padding(
               padding: const EdgeInsets.only(
                 top: 15.0,
@@ -79,7 +79,7 @@ class _SearchFieldState extends State<SearchField> {
               borderSide: BorderSide(
                   color: Theme.of(context)
                       .textTheme
-                      .headline6
+                      .titleLarge
                       !.color
                       !.withOpacity(0.7)),
             ),
@@ -88,7 +88,7 @@ class _SearchFieldState extends State<SearchField> {
               borderSide: BorderSide(
                   color: Theme.of(context)
                       .textTheme
-                      .headline6
+                      .titleLarge
                       !.color
                       !.withOpacity(0.7)),
             ),
@@ -111,10 +111,10 @@ class _SearchFieldState extends State<SearchField> {
               width: 23,
               color: !_submitted ||
                       widget.textEditingController.text != _lastSubmittedValue
-                  ? Theme.of(context).textTheme.headline6?.color
+                  ? Theme.of(context).textTheme.titleLarge?.color
                   : Theme.of(context)
                       .textTheme
-                      .headline6
+                      .titleLarge
                       ?.color
                       ?.withOpacity(0.3),
             ),

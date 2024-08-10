@@ -18,7 +18,7 @@ class RitualItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).textTheme.headline3?.color,
+        color: Theme.of(context).textTheme.displaySmall?.color,
         borderRadius: const BorderRadius.all(
           Radius.circular(12.0),
         ),
@@ -29,7 +29,7 @@ class RitualItem extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                color: Theme.of(context).textTheme.headline1?.color,
+                color: Theme.of(context).textTheme.displayLarge?.color,
                 fontSize: 20),
           ),
           const SizedBox(height: 10),
@@ -38,7 +38,7 @@ class RitualItem extends StatelessWidget {
             style: TextStyle(
                 color: Theme.of(context)
                     .textTheme
-                    .headline1
+                    .displayLarge
                     ?.color
                     ?.withOpacity(0.4),
                 fontSize: 17),

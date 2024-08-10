@@ -13,6 +13,7 @@ import 'package:quel_prof/controller/settings_provider/provider_theme.dart';
 import 'package:quel_prof/firebase_options.dart';
 import 'package:quel_prof/l10n/l10n.dart';
 import 'package:quel_prof/view/fist_page.dart';
+import 'package:quel_prof/view/home_web_view.dart';
 import 'package:quel_prof/view/login_page.dart';
 import 'package:quel_prof/view/main_page.dart';
 
@@ -56,11 +57,12 @@ class MyApp extends StatelessWidget {
           title: 'Quel Prof',
           debugShowCheckedModeBanner: false,
           theme: Provider.of<ProviderTheme>(context).getThemeMode(),
-          initialRoute: '/FirstPage',
+          initialRoute: '/HomeWebView',
           routes: {
             '/FirstPage': (context) => const FirstPage(),
             '/LoginPage': (context) => const LoginPage(),
             '/MainPage': (context) => const MainPage(),
+            '/HomeWebView': (context) => const HomeWebView(),
           },
           locale: Provider.of<ProviderLanguage>(context).currentLanguage,
           supportedLocales: L10n.all,

@@ -14,27 +14,28 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.15
-  http: ^0.13.5
-  share_plus: ^4.1.0
+  http: ^1.2.2
+  share_plus: ^7.2.2
 #  paged_vertical_calendar: ^1.1.4
-  intl: ^0.17.0
+  intl: ^0.19.0
   motion_toast: ^2.3.2
-  getwidget: ^3.0.1
-  firebase_core: ^1.22.0
-  firebase_messaging: ^13.0.1
+  getwidget: ^4.0.0
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.10
   provider: ^6.0.3
-  flutter_svg: ^1.1.5
+  flutter_svg: ^2.0.10+1
   flutter_localizations:
     sdk: flutter
   flutter_snake_navigationbar: ^0.6.1
   paged_vertical_calendar: ^1.1.4
-  firebase_auth: ^3.11.1
+  firebase_auth: ^4.16.0
   flutter_session_manager: ^1.0.3
-  cloud_firestore: ^3.5.1
+  cloud_firestore: ^4.14.0
   flutter_firebase_chat_core: ^1.6.3
-  any_link_preview: ^2.0.9
+  any_link_preview: ^3.0.2
   url_launcher: ^6.1.6
-  flutter_keyboard_visibility: ^5.4.0
+  flutter_keyboard_visibility: ^6.0.0
+  webview_flutter: ^4.8.0
 #  flutter_launcher_icons: ^0.10.0
 #
 #flutter_icons:
@@ -61,7 +62,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
 

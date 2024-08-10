@@ -32,7 +32,7 @@ class SavedVersesItem extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).textTheme.titleLarge?.color,
                           fontSize: 20),
                     ),
                     const SizedBox(height: 10),
@@ -41,7 +41,7 @@ class SavedVersesItem extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context)
                               .textTheme
-                              .headline6
+                              .titleLarge
                               ?.color
                               ?.withOpacity(0.4),
                           fontSize: 17),
@@ -65,7 +65,7 @@ class SavedVersesItem extends StatelessWidget {
                         width: 22,
                         child: SvgPicture.asset(
                           'Assets/Icons/heart(1).svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).textTheme.titleLarge?.color,
                         ),
                       ),
                     ),
@@ -80,7 +80,7 @@ class SavedVersesItem extends StatelessWidget {
                         width: 22,
                         child: SvgPicture.asset(
                           'Assets/Icons/vuesax-linear-export.svg',
-                          color: Theme.of(context).textTheme.headline6?.color,
+                          color: Theme.of(context).textTheme.titleLarge?.color,
                         ),
                       ),
                     ),
@@ -91,7 +91,7 @@ class SavedVersesItem extends StatelessWidget {
           ),
           Divider(
             thickness: 1.0,
-            color: Theme.of(context).textTheme.headline6?.color,
+            color: Theme.of(context).textTheme.titleLarge?.color,
           )
         ],
       ),

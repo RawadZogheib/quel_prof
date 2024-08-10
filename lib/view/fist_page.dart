@@ -24,7 +24,7 @@ class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       alignment: Alignment.center,
       child: Image.asset(
         'Assets/launch_icon/167d298c-cef9-4317-b600-d8da249d4d2b.png',

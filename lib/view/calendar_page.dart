@@ -35,9 +35,9 @@ class _CalendarPageState extends State<CalendarPage> {
               colors: [
                 Theme.of(context).primaryColor,
                 Theme.of(context).primaryColor,
-                Theme.of(context).backgroundColor,
-                Theme.of(context).backgroundColor,
-                Theme.of(context).backgroundColor,
+                Theme.of(context).colorScheme.background,
+                Theme.of(context).colorScheme.background,
+                Theme.of(context).colorScheme.background,
               ],
             ),
           ),
@@ -65,7 +65,7 @@ class _CalendarPageState extends State<CalendarPage> {
                     padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).backgroundColor,
+                      color: Theme.of(context).colorScheme.background,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30),

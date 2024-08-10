@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
       onWillPop: () async =>
           Provider.of<ProviderNavigation>(context, listen: false).goBack(),
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Center(
           child: SingleChildScrollView(
             child: Center(

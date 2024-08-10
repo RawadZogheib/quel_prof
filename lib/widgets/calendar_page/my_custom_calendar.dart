@@ -92,7 +92,7 @@ class _MyCustomCalenderState extends State<MyCustomCalender> {
                           .format(DateTime(_year, _month)),
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .titleLarge
                           ?.copyWith(color: my_colors.backgroundLight),
                     );
                   }),

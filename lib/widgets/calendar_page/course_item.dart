@@ -30,7 +30,7 @@ class CourseItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           margin: const EdgeInsets.symmetric(vertical: 4.0),
           decoration: BoxDecoration(
-              color: Theme.of(context).backgroundColor,
+              color: Theme.of(context).colorScheme.background,
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               border: Border.all(color: Theme.of(context).primaryColor)),
           child: Column(
@@ -67,7 +67,7 @@ class CourseItem extends StatelessWidget {
                             "Join",
                             style: TextStyle(
                               fontSize: 15,
-                              color: Theme.of(context).backgroundColor,
+                              color: Theme.of(context).colorScheme.background,
                             ),
                           ),
                         ),

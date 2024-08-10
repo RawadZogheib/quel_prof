@@ -22,7 +22,7 @@ class _MyDrawerState extends State<MyDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: Theme.of(context).backgroundColor, //globals.blue1,
+        color: Theme.of(context).colorScheme.background, //globals.blue1,
         child: ScrollConfiguration(
           behavior: MyCustomScrollBehavior(),
           child: ListView(
